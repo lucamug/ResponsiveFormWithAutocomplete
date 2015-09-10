@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<!-- Test by Luca Mugnaini - Versione 1.1 -->
+	<meta charset="UTF-8">
+	<meta name="description" content="Test - August 18th, 2015">
+	<meta name="author" content="Luca Mugnaini">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test by Luca Mugnaini - August 18th, 2015</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/skeleton.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:400,300,600" />
+	<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/flick/jquery-ui.css" />
+</head>
+<body>
+<div class="container">
+    <p id="language" data-language="it"><a href="test_by_Luca_Mugnaini.v.1.html">English</a> &nbsp; Italian</p>
+	<h1>Test</h1>
+	<form action="Thank_you.html" enctype="multipart/form-data" id="test" method="post" name="test">
+		<h4>Informazioni personali</h4>
+		<div class="row">
+			<label for="field_fname">Nome</label>
+			<input class="u-full-width" id="field_fname" name="field_fname" placeholder="Il tuo nome" required="" type="text">
+			<label for="field_sname">Cognome</label>
+			<input class="u-full-width" id="field_sname" name="field_sname" placeholder="Il tuo cognome" required="" type="text">
+		</div>
+		<h4>Informazioni sulla spedizione</h4>
+		<div class="row">
+			<label for="field_address">Indirizzo</label>
+			<textarea class="u-full-width" id="field_address" name="field_address" placeholder="Il tuo indirizzo" required=""></textarea>
+		</div>
+		<div class="row">
+			<div class="eight columns" id="maps_div">
+				<div class="row">
+					<div class="six columns">
+						<label for="field_country">Nazione</label>
+						<select class="u-full-width" id="field_country" name="field_country">
+							<option value="select a country">Seleziona</option>
+							<option value="de">Germania</option>
+							<option value="at">Austria</option>
+							<option value="es">Spagna</option>
+							<option value="fr">Francia</option>
+							<option value="uk">Regno Unito</option>
+						</select>
+					</div>
+					<div class="six columns">
+						<label for="field_city">Città</label>
+						<input class="u-full-width" id="field_city" name="field_city" placeholder="La tua città" required="" type="text">
+						<div id="no_city" class="error"></div>
+					</div>
+				</div>
+                <!-- Location where maps will be added (appending to .maps_div -->
+            </div>
+			<div class="four columns">
+				<label>Costo di spedizione</label>
+                <p class="currency u-full-width" id="field_shipping">Calcolati dopo aver confermato</p>
+			</div>
+		</div>
+		<h4>Metodo di pagamento</h4>
+		<div class="row">
+			<label for="field_cname">Nome della carta</label>
+			<input class="u-full-width" id="field_cname" name="field_cname" placeholder="Nome della carta" required="" type="text">
+		</div>
+		<div class="row">
+			<div class="eight columns">
+				<label for="field_cnumber">Numero della carta</label>
+				<input class="u-full-width" id="field_cnumber" name="field_cnumber" placeholder="Numero della carta" required="" type="text">
+			</div>
+			<div class="four columns">
+				<label for="field_cvv">CVV</label>
+				<input class="u-full-width" id="field_cvv" name="field_cvv" placeholder="CVV" required="" type="text">
+			</div>
+		</div>
+		<div class="row">
+			<input id="field_agree" name="field_agree" required="" type="checkbox" value="agreed">
+			<label class="inline-label" for="field_agree">Accetto i termini e le condizioni</label>
+		</div>
+		<div class="centered row">
+			<input class="submit button-primary" type="submit" value="Invia">
+		</div>
+	</form>
+	<hr />
+	<div class="row">
+		<h5>Note</h5>
+		<ul>
+			<li>The city field is disabled unless the user select a country</li>
+			<li>Based on the country selected, the city suggestion is filtered and return only cities of that country</li>
+			<li>An error message appear if no cities are found by the public api</li>
+			<li>The shipping cost is update upon country selection</li>
+			<li>The page is responsive</li>
+			<li>The layout is based on <a href="http://getskeleton.com/">Skeleton</a></li>
+			<li>The page use the public api <a href="http://www.geobytes.com/free-ajax-cities-jsonp-api/">Ajax Autocomplete Cities List</a> by Geobytes</li>
+			<li>There is a simple client side validation based on HTML5 specifications</li>
+			<li>It has been tested only on Google Chrome (PC and mobile)</li>
+			<li>A map appear upon city selection. From an UX perspective I would probably ask to remove it. But when I notice that the public api could return also latitude and longitude I could not resist. I like maps</li>
+			<li>Supports some level of graceful degradation, for example it works with Javascript turned off</li>
+			<li>Done some refactoring to achieve a more testable Javescrit with <a href="Spec_Runner.html">Jasmine</a></li>
+			<li>Find other comments in <a href="js/common.js">common.js</a></li>
+		</ul>
+		<h5>Possible Improvements</h5>
+		<ul>
+			<li>Run User Testing (think aloud) to verify the simplicity and clarity of the interface</li>
+			<li>Test on several browsers and mobile platforms</li>
+			<li>Implement better client side validation</li>
+		</ul>
+		<h5>Links</h5>
+		<ul>
+            <li>This page is at <a href="http://lucamugnaini.guupa.com/ResponsiveFormWithAutocomplete/">lucamugnaini.guupa.com/ResponsiveFormWithAutocomplete/</a></li>
+            <li>Github <a href="https://github.com/lucamug/ResponsiveFormWithAutocomplete">github.com/lucamug/ResponsiveFormWithAutocomplete</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</body>
+</html>
